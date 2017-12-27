@@ -1,0 +1,47 @@
+---
+common_linux_commands:
+  - bzip2
+  - curl
+  - htop
+  - iotop
+  - pbzip2
+  - rsync
+  - vim
+  - wget
+
+common_linux_commands_gentoo:
+  - name: app-arch/bzip2
+    useflags: []
+  - name: app-arch/pbzip2
+    useflags: []
+  - name: app-editors/vim
+    useflags:
+      - python
+      - ruby
+  - name: app-portage/cpuid2cpuflags
+    useflags: []
+  - name: app-portage/eix
+    useflags: []
+  - name: app-portage/gentoolkit
+    useflags: []
+  - name: app-portage/gentoopm
+    useflags: []
+  - name: app-portage/layman
+    useflags:
+      - cvs
+      - git
+      - gpg
+      - mercurial
+      - subversion
+  - name: app-portage/mirrorselect
+    useflags: []
+  - name: net-misc/rsync
+    useflags: []
+  - name: net-misc/wget
+    useflags: []
+  - name: net-misc/curl
+    useflags: []
+  - name: sys-process/iotop
+    useflags: []
+  - name: sys-process/htop
+    useflags: []

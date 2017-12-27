@@ -1,0 +1,10 @@
+---
+- name: "Including tasks for Gentoo"
+  include_tasks: "Gentoo/main.yml"
+  when: ansible_os_family == "Gentoo"
+
+- name: Install common Linux commands
+  package:
+    name: "{{ item }}"
+  with_items: "{{ common_linux_commands + common_linux_commands_extra}}"
+  when: ansible_os_family != "Gentoo"

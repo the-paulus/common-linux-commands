@@ -1,0 +1,22 @@
+---
+- name: Install common Gentoo Linux commands
+  portage:
+    keepgoing: yes
+    package: "{{ item }}"
+    state: present
+  with_items: "{{ (common_linux_commands_gentoo + common_linux_commands_gentoo_extra) | map(attribute='name') | list }}"
+
+- name: Add useflags to packages
+  shell: "euse -E -p {{ item.name }} {{ item.useflags | join(' ') }}"
+  with_items: "{{ common_linux_commands_gentoo }}"
+  when: item.useflags is defined
+
+- name: "Running emerge -uND"
+  portage:
+    newuse: yes
+    update: yes
+    deep: yes
+    sync: yes
+    keepgoing: yes
+    package: "@world"
+    state: latest

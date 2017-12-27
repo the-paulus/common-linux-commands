@@ -1,0 +1,23 @@
+galaxy_info:
+  author: Paul Lyon
+  description: Installs commonly used programs.
+  license: BSD
+  min_ansible_version: 2.4
+  github_branch: master
+  platforms:
+  - name: Fedora
+    versions:
+    - all
+  - name: EL
+    versions:
+    - all
+  - name: Gentoo
+    version:
+    - all
+  galaxy_tags:
+    - system
+    - gentoo
+    - fedora
+    - el
+
+dependencies: []

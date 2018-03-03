@@ -1,3 +1,4 @@
 ---
 common_linux_commands_extra: []
 common_linux_commands_gentoo_extra: []
+common_linux_commands_gentoo_global_useflags_extra: []

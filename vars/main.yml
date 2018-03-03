@@ -9,6 +9,8 @@ common_linux_commands:
   - vim
   - wget
 
+common_linux_commands_gentoo_global_useflags: []
+
 common_linux_commands_gentoo:
   - name: app-arch/bzip2
     useflags: []
@@ -21,8 +23,6 @@ common_linux_commands_gentoo:
   - name: app-portage/cpuid2cpuflags
     useflags: []
   - name: app-portage/eix
-    useflags: []
-  - name: app-portage/gentoolkit
     useflags: []
   - name: app-portage/gentoopm
     useflags: []
@@ -40,8 +40,6 @@ common_linux_commands_gentoo:
   - name: net-misc/wget
     useflags: []
   - name: net-misc/curl
-    useflags: []
-  - name: sys-apps/selinux-python
     useflags: []
   - name: sys-process/iotop
     useflags: []

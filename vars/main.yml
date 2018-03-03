@@ -41,6 +41,8 @@ common_linux_commands_gentoo:
     useflags: []
   - name: net-misc/curl
     useflags: []
+  - name: sys-apps/selinux-python
+    useflags: []
   - name: sys-process/iotop
     useflags: []
   - name: sys-process/htop

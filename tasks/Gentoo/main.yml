@@ -1,15 +1,25 @@
 ---
+- name: Install gentoolkit
+  portage:
+    keepgoing: yes
+    package: app-portage/gentoolkit
+    state: present
+
+- name: Add useflags to make.conf
+  shell: "euse -E {{ common_linux_commands_gentoo_global_useflags + common_linux_commands_gentoo_global_useflags_extra | map(attribute='useflags') | join(' ') }}"
+  when: common_linux_commands_gentoo_global_useflags and common_linux_commands_gentoo_global_useflags_extra
+
+- name: Add useflags for packages
+  shell: "euse -E -p {{ item.name }} {{ item.useflags | join(' ') }}"
+  with_items: "{{ common_linux_commands_gentoo + common_linux_commands_gentoo_extra }}"
+  when: item.useflags
+
 - name: Install common Gentoo Linux commands
   portage:
     keepgoing: yes
     package: "{{ item }}"
     state: present
   with_items: "{{ (common_linux_commands_gentoo + common_linux_commands_gentoo_extra) | map(attribute='name') | list }}"
-
-- name: Add useflags to packages
-  shell: "euse -E -p {{ item.name }} {{ item.useflags | join(' ') }}"
-  with_items: "{{ common_linux_commands_gentoo }}"
-  when: item.useflags is defined
 
 - name: "Running emerge -uND"
   portage:

@@ -12,7 +12,7 @@
 - name: Add useflags for packages
   shell: "euse -E -p {{ item.name }} {{ item.useflags | join(' ') }}"
   with_items: "{{ common_linux_commands_gentoo + common_linux_commands_gentoo_extra }}"
-  when: item.useflags
+  when: item.useflags is defined and item.useflags
 
 - name: Install common Gentoo Linux commands
   portage:

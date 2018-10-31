@@ -53,7 +53,7 @@ common_linux_commands_gentoo:
     useflags: []
   - name: app-arch/lrzip
     useflags: []
-  - name: sys-processes/nmon
+  - name: sys-process/nmon
     useflags: []
   - name: app-arch/pbzip2
     useflags:
@@ -90,6 +90,11 @@ common_linux_commands_gentoo:
       - sqlite
   - name: app-portage/gentoopm
     useflags: []
+  - name: dev-vcs/subversion
+    useflags:
+      - perl
+    remove_useflags:
+      - dso
   - name: app-portage/layman
     useflags:
       - bazaar

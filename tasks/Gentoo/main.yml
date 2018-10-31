@@ -14,6 +14,11 @@
   with_items: "{{ common_linux_commands_gentoo + common_linux_commands_gentoo_extra }}"
   when: item.useflags is defined and item.useflags
 
+- name: Disable useflags for packages
+  shell: "euse -D -p {{ item.name }} {{ item.remove_useflags | join(' ') }}"
+  with_items: "{{ common_linux_commands_gentoo + common_linux_commands_gentoo_extra }}"
+  when: item.remove_useflags is defined and item.remove_useflags
+
 - name: Install common Gentoo Linux commands
   portage:
     keepgoing: yes

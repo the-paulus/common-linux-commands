@@ -2,9 +2,14 @@
 common_linux_commands:
   - bzip2
   - curl
+  - git
   - htop
   - iotop
+  - lrzip
+  - nmon
   - pbzip2
+  - pigz
+  - pv
   - rsync
   - vim
   - wget
@@ -14,34 +19,83 @@ common_linux_commands_gentoo_global_useflags: []
 common_linux_commands_gentoo:
   - name: app-arch/bzip2
     useflags: []
-  - name: app-arch/pbzip2
+  - name: net-misc/curl
+    useflags:
+      - http2
+      - ipv6
+      - kerberos
+      - ldap
+      - samba
+      - ssh
+      - ssl
+      - threads
+      - zlib
+  - name: dev-vcs/git
+    useflags:
+      - blksha1
+      - curl
+      - cvs
+      - docs
+      - gpg
+      - highlight
+      - iconv
+      - nls
+      - pcre
+      - pcre-jit
+      - perl
+      - python
+      - subversion
+      - threads
+      - webdav
+  - name: sys-process/htop
     useflags: []
+  - name: sys-process/iotop
+    useflags: []
+  - name: app-arch/lrzip
+    useflags: []
+  - name: sys-processes/nmon
+    useflags: []
+  - name: app-arch/pbzip2
+    useflags:
+      - symlink
+  - name: app-arch/pigz
+    useflags:
+      - symlink
+  - name: sys-apps/pv
+    useflags: []
+  - name: net-misc/rsync
+    useflags:
+      - acl
+      - iconv
+      - ipv6
+      - xattr
+      - stunnel
   - name: app-editors/vim
     useflags:
       - python
       - ruby
+  - name: net-misc/wget
+    useflags:
+      - ipv6
+      - nls
+      - ntlm
+      - pcre
+      - ssl
+      - uuid
+      - zlib
   - name: app-portage/cpuid2cpuflags
     useflags: []
   - name: app-portage/eix
-    useflags: []
+    useflags:
+      - sqlite
   - name: app-portage/gentoopm
     useflags: []
   - name: app-portage/layman
     useflags:
+      - bazaar
       - cvs
       - git
       - gpg
       - mercurial
       - subversion
-  - name: app-portage/mirrorselect
-    useflags: []
-  - name: net-misc/rsync
-    useflags: []
-  - name: net-misc/wget
-    useflags: []
-  - name: net-misc/curl
-    useflags: []
-  - name: sys-process/iotop
-    useflags: []
-  - name: sys-process/htop
-    useflags: []
+      - sync-plugin-portage
